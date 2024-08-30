@@ -1,0 +1,51 @@
+import { useState } from "react";
+import "./App.css";
+
+function App() {
+  const [turnIndex, setTurnIndex] = useState(0);
+
+  const turnsArray = [
+    { num: "1", strat: "Leadership", color: "red-600" },
+    { num: "2", strat: "Diplomacy", color: "orange-500" },
+    { num: "3", strat: "Politics", color: "yellow-400" },
+    { num: "4", strat: "Construction", color: "green-500" },
+    { num: "5", strat: "Trade", color: "cyan-500" },
+    { num: "6", strat: "Warfare", color: "blue-400" },
+    { num: "7", strat: "Technology", color: "blue-700" },
+    { num: "8", strat: "Imperial", color: "purple-600" },
+  ];
+
+  const nextTurn = (e) => {
+    e.preventDefault();
+    turnIndex < 7 ? setTurnIndex(turnIndex + 1) : setTurnIndex(0);
+  };
+
+  const prevTurn = (e) => {
+    e.preventDefault();
+    turnIndex > 0 ? setTurnIndex(turnIndex - 1) : setTurnIndex(7);
+  };
+
+  return (
+    <>
+      <div className="flex h-screen w-96 flex-col items-center">
+        <div
+          className={`mt-3 flex h-5/6 w-full items-center border border-8 rounded-3xl border-${turnsArray[turnIndex].color}`}
+        >
+          <div className="w-full text-center">
+            <p className="text-9xl">{turnsArray[turnIndex].num}</p>
+          </div>
+        </div>
+        <div className="my-3 space-x-3 flex w-full">
+          <button onClick={prevTurn} className="w-1/2 text-center outline">
+            prev turn
+          </button>
+          <button onClick={nextTurn} className="w-1/2 text-center outline">
+            next turn
+          </button>
+        </div>
+      </div>
+    </>
+  );
+}
+
+export default App;
