@@ -5,14 +5,14 @@ function App() {
   const [turnIndex, setTurnIndex] = useState(0);
 
   const turnsArray = [
-    { num: "1", strat: "Leadership", color: "red-600" },
-    { num: "2", strat: "Diplomacy", color: "orange-500" },
-    { num: "3", strat: "Politics", color: "yellow-400" },
-    { num: "4", strat: "Construction", color: "green-500" },
-    { num: "5", strat: "Trade", color: "cyan-500" },
-    { num: "6", strat: "Warfare", color: "blue-400" },
-    { num: "7", strat: "Technology", color: "blue-700" },
-    { num: "8", strat: "Imperial", color: "purple-600" },
+    { num: "1", strat: "Leadership", border: "border-red-600" },
+    { num: "2", strat: "Diplomacy", border: "border-orange-500" },
+    { num: "3", strat: "Politics", border: "border-yellow-400" },
+    { num: "4", strat: "Construction", border: "border-green-500" },
+    { num: "5", strat: "Trade", border: "border-cyan-400" },
+    { num: "6", strat: "Warfare", border: "border-blue-500" },
+    { num: "7", strat: "Technology", border: "border-blue-800" },
+    { num: "8", strat: "Imperial", border: "border-purple-600" },
   ];
 
   const nextTurn = (e) => {
@@ -29,7 +29,7 @@ function App() {
     <>
       <div className="flex h-screen w-96 flex-col items-center">
         <div
-          className={`mt-3 flex h-5/6 w-full items-center border border-8 rounded-3xl border-${turnsArray[turnIndex].color}`}
+          className={`mt-3 flex h-5/6 w-full items-center border border-8 rounded-3xl ${turnsArray[turnIndex].border}`}
         >
           <div className="w-full text-center">
             <p className="text-9xl">{turnsArray[turnIndex].num}</p>
