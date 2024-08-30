@@ -38,15 +38,15 @@ function App() {
   }, [turnString]);
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col gap-4 min-w-96">
       <div
-        className={["mt-3 flex h-5/6 min-w-96	items-center border border-8 rounded-3xl", `${turnsArray[turnIndex].border}`].join(" ")}
+        className={["my-3 flex grow items-center border border-8 rounded-3xl", `${turnsArray[turnIndex].border}`].join(" ")}
       >
         <div className="w-full text-center">
           <p className="text-9xl">{turnsArray[turnIndex].num}</p>
         </div>
       </div>
-      <div className="my-3 space-x-3 flex w-full">
+      <div className="flex flex-row gap-4 justify-center w-full">
         <button onClick={prevTurn} className="w-1/2 text-center outline">
           prev turn
         </button>
