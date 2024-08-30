@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 
 function App() {
@@ -15,6 +15,13 @@ function App() {
     { num: "8", strat: "Imperial", border: "border-purple-600" },
   ];
 
+  useEffect(() => {
+    const turn = JSON.parse(localStorage.getItem("turn"));
+    if (turn) {
+      setTurnIndex(turn);
+    }
+  }, []);
+
   const nextTurn = (e) => {
     e.preventDefault();
     turnIndex < 7 ? setTurnIndex(turnIndex + 1) : setTurnIndex(0);
@@ -24,6 +31,11 @@ function App() {
     e.preventDefault();
     turnIndex > 0 ? setTurnIndex(turnIndex - 1) : setTurnIndex(7);
   };
+
+  const turnString = JSON.stringify(turnIndex);
+  useEffect(() => {
+    localStorage.setItem("turn", turnString);
+  }, [turnString]);
 
   return (
     <>
